@@ -14,7 +14,7 @@ export default function Tarjeta(props: any) {
             style={styles.container}>
             <Text >Nombre: {props.datos.name}</Text>
 
-            <View style={{ flexDirection: 'row', }}>
+            <View style={styles.fila}>
                 <Text style={{ width: "80%" }}> Especie: {props.datos.species}</Text>
                 <Image style={styles.img}
                     source={{ uri: props.datos.image }} />
@@ -25,6 +25,7 @@ export default function Tarjeta(props: any) {
                 transparent
                 
             >
+                <Text >Filtrar a solo humanos</Text>
                 <View style={styles.modal}>
                 <View style={styles.modalContainer}>
                     <Image
@@ -52,40 +53,49 @@ export default function Tarjeta(props: any) {
 const styles = StyleSheet.create({
 
     container: {
-        backgroundColor: "rgba(22, 173, 22, 0.92)",
-        margin: 7,
+        backgroundColor: "#5ac45a",
+        margin: 8,
+        padding: 12,
+        borderRadius: 12,
+        elevation: 4,
+    },
 
+    fila: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        marginTop: 5,
     },
 
     img: {
-        width: 50,
-        height: 100,
-        resizeMode: 'center'
-
+        width: 70,
+        height: 70,
+        resizeMode: "contain",
+        borderRadius: 10,
     },
 
     img2: {
-        width: 50,
-        height: 100,
-        resizeMode: 'contain'
-
+        width: 150,
+        height: 150,
+        resizeMode: "contain",
+        borderRadius: 12,
+        marginBottom: 10,
     },
 
     modalContainer: {
-        backgroundColor: "#3161c7",
+        backgroundColor: "white",
         width: "80%",
-        alignSelf: 'center',
-        flex:1,
-        height:100,
+        alignSelf: "center",
+        alignItems: "center",
         borderRadius: 20,
-        padding: 50
-
+        padding: 25,
+        elevation: 8,
     },
 
-  modal: {
-    backgroundColor: '#665',
-    flex: 1,
-    justifyContent: 'center'
-  }
+    modal: {
+        backgroundColor: "rgba(0, 0, 0, 0.6)",
+        flex: 1,
+        justifyContent: "center",
+    }
 
 })

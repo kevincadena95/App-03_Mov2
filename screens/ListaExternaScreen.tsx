@@ -9,7 +9,7 @@ export default function ListaExternaScreen() {
 
     const [personajes, setPerosnajes] = useState([])
 
-        const [mostrar, setMostar] = useState(false)
+    const [mostrar, setMostar] = useState(false)
 
     useEffect(() => {
         cargarDatos()
@@ -28,13 +28,19 @@ export default function ListaExternaScreen() {
             <Text>ListaExternaScreen</Text>
 
             <Switch
-            value={mostrar}
-            onChange={()=> setMostar(!mostrar)}>
-                
+                value={mostrar}
+                onChange={() => setMostar(!mostrar)}>
             </Switch>
+            <View style={{ alignItems: 'flex-end' }}>
+                <Text  style={{ padding:15 }}>Filtrar a solo HUMANOS</Text>
+            </View>
 
             <FlatList
-                data={personajes}
+                data={mostrar
+                    ? personajes.filter((item: any) => item.species === "Human")
+                    : personajes
+                }
+
                 renderItem={({ item }) =>
                     <Tarjeta2 datos={item} />
                 }

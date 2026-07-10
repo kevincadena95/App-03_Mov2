@@ -15,7 +15,7 @@ export default function Tarjeta(props: any) {
         style={styles.container}>
             <Text >{props.datos.name}</Text>
 
-            <View style={{ flexDirection: 'row' }}>
+            <View style={styles.fila}>
                 <Text style={{width:"70%"}}>{props.datos.description}</Text>
                 <Image style={styles.img}
                     source={{ uri: props.datos.image }} />
@@ -27,16 +27,25 @@ export default function Tarjeta(props: any) {
 const styles = StyleSheet.create({
 
     container: {
-        backgroundColor: "rgba(228, 116, 25, 0.92)",
-        margin: 7,
+        backgroundColor: "#ff8800",
+        margin: 8,
+        padding: 12,
+        borderRadius: 12,
+        elevation: 4,
+    },
 
+    fila: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        marginTop: 5,
     },
 
     img: {
-        width: 100,
-        height: 300,
-        resizeMode: 'center'
-
-    }
+        width: 70,
+        height: 70,
+        resizeMode: "contain",
+        borderRadius: 10,
+    },
 
 })
